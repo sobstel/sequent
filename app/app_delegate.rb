@@ -7,7 +7,7 @@ class AppDelegate < PM::Delegate
   ApplicationStylesheet.new(nil).application_setup
 
   def on_load(app, options)
-    open HomeScreen.new(nav_bar: true)
+    open HomeScreen.new
   end
 
   # Remove this if you are only supporting portrait
@@ -15,5 +15,7 @@ class AppDelegate < PM::Delegate
     # Manually set RMQ's orientation before the device is actually oriented
     # So that we can do stuff like style views before the rotation begins
     device.orientation = new_orientation
+
+    UIApplication.sharedApplication.setStatusBarHidden true, animated:false
   end
 end

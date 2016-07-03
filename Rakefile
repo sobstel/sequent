@@ -11,9 +11,9 @@ Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings
 
   app.name = 'sequent'
-  app.identifier = 'com.your_domain_here.sequent'
+  app.identifier = 'org.sobstel.sequent'
 
-  app.short_version = '0.1.0'
+  app.short_version = '1.0.0'
   # Get version from git
   #app.version = (`git rev-list HEAD --count`.strip.to_i).to_s
   app.version = app.short_version
@@ -31,7 +31,7 @@ Motion::Project::App.setup do |app|
   app.icons = Dir.glob("resources/icon*.png").map{|icon| icon.split("/").last}
 
   app.device_family = [:iphone, :ipad]
-  app.interface_orientations = [:portrait, :landscape_left, :landscape_right, :portrait_upside_down]
+  app.interface_orientations = [:portrait]
 
   app.files += Dir.glob(File.join(app.project_dir, 'lib/**/*.rb'))
 
@@ -42,6 +42,9 @@ Motion::Project::App.setup do |app|
 
   # app.vendor_project('vendor/Flurry', :static)
   # app.vendor_project('vendor/DSLCalendarView', :static, :cflags => '-fobjc-arc') # Using arc
+
+  app.info_plist['UIStatusBarHidden'] = true
+  app.info_plist['UIViewControllerBasedStatusBarAppearance'] = false
 
   app.pods do
     pod 'SDWebImage'

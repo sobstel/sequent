@@ -5,7 +5,7 @@ class StandardAppearance
     Dispatch.once do
 
       UIWindow.appearance.tap do |o|
-        o.tintColor = rmq.color.blue
+        o.tintColor = rmq.color.white
       end
 
       UILabel.appearance.tap do |o|
@@ -48,4 +48,3 @@ class StandardAppearance
     end
   end
 end
-

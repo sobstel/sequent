@@ -6,15 +6,18 @@ class HomeScreenStylesheet < ApplicationStylesheet
   end
 
   def root_view(st)
-    st.background_color = color.white
+    st.background_image = image.resource('test.jpg')
   end
 
   def hello_world(st)
     st.frame = {t: 100, w: 200, h: 18, centered: :horizontal}
     st.text_alignment = :center
     st.color = color.battleship_gray
-    st.font = font.medium
-    st.text = 'Hello World'
+    st.font = font.small
+    st.text = 'Hello. Sequen!'
+  end
+
+  def background(st)
   end
 
 end
