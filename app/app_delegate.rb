@@ -15,7 +15,5 @@ class AppDelegate < PM::Delegate
     # Manually set RMQ's orientation before the device is actually oriented
     # So that we can do stuff like style views before the rotation begins
     device.orientation = new_orientation
-
-    UIApplication.sharedApplication.setStatusBarHidden true, animated:false
   end
 end

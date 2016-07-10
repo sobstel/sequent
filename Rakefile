@@ -10,8 +10,8 @@ Bundler.require
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings
 
-  app.name = 'sequent'
-  app.identifier = 'org.sobstel.sequent'
+  app.name = 'Sequent'
+  app.identifier = 'org.sobstel.Sequent'
 
   app.short_version = '1.0.0'
   # Get version from git
@@ -30,7 +30,8 @@ Motion::Project::App.setup do |app|
 
   app.icons = Dir.glob("resources/icon*.png").map{|icon| icon.split("/").last}
 
-  app.device_family = [:iphone, :ipad]
+  app.device_family = [:iphone]
+  # app.device_family = [:iphone, :ipad]
   app.interface_orientations = [:portrait]
 
   app.files += Dir.glob(File.join(app.project_dir, 'lib/**/*.rb'))
@@ -44,7 +45,6 @@ Motion::Project::App.setup do |app|
   # app.vendor_project('vendor/DSLCalendarView', :static, :cflags => '-fobjc-arc') # Using arc
 
   app.info_plist['UIStatusBarHidden'] = true
-  app.info_plist['UIViewControllerBasedStatusBarAppearance'] = false
 
   app.pods do
     pod 'SDWebImage'
@@ -54,14 +54,14 @@ Motion::Project::App.setup do |app|
   end
 
   app.development do
-    app.codesign_certificate = "iPhone Developer: YOURNAME"
-    app.provisioning_profile = "signing/sequent.mobileprovision"
+    # app.codesign_certificate = "iPhone Developer: YOURNAME"
+    # app.provisioning_profile = "signing/sequent.mobileprovision"
   end
 
   app.release do
     app.entitlements['get-task-allow'] = false
-    app.codesign_certificate = 'iPhone Distribution: YOURNAME'
-    app.provisioning_profile = "signing/sequent.mobileprovision"
+    # app.codesign_certificate = 'iPhone Distribution: YOURNAME'
+    # app.provisioning_profile = "signing/sequent.mobileprovision"
     app.entitlements['beta-reports-active'] = true # For TestFlight
 
     app.seed_id = "YOUR_SEED_ID"

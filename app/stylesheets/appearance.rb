@@ -22,13 +22,14 @@ class StandardAppearance
       # end
 
       # UINavigationBar.appearance.tap do |o|
-      #   o.barTintColor = rmq.color.black
+      #    o.barTintColor = rmq.color.black
+      #   #  o.barTintColor = rmq.color.battleship_gray
       #    o.setTintColor rmq.color.white
-
+      #
       #    o.setTitleTextAttributes( {
-      #      UITextAttributeFont => rmq.font.medium,
-      #      UITextAttributeTextColor => rmq.color.white
-      #      #UITextAttributeTextShadowColor => color.clear
+      #      UITextAttributeFont => rmq.font.font_with_name('HelveticaNeue-Bold', 18),
+      #      UITextAttributeTextColor => rmq.color.white,
+      #      UITextAttributeTextShadowColor => rmq.color.gray
       #    })
       #  end
 
