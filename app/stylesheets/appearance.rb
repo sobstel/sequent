@@ -1,11 +1,10 @@
 # UIAppearance. All settings here apply to all views of that type.
 # What you can't do here, do in ApplicationStylesheet
 class StandardAppearance
-  def self.apply(window)
+  def self.apply(_window)
     Dispatch.once do
-
       UIWindow.appearance.tap do |o|
-        o.tintColor = rmq.color.white
+        o.tintColor = rmq.color('#f3f3f3')
       end
 
       UILabel.appearance.tap do |o|
@@ -21,17 +20,14 @@ class StandardAppearance
       #   o.separatorColor = rmq.color.clear
       # end
 
-      # UINavigationBar.appearance.tap do |o|
-      #    o.barTintColor = rmq.color.black
-      #   #  o.barTintColor = rmq.color.battleship_gray
-      #    o.setTintColor rmq.color.white
-      #
-      #    o.setTitleTextAttributes( {
-      #      UITextAttributeFont => rmq.font.font_with_name('HelveticaNeue-Bold', 18),
-      #      UITextAttributeTextColor => rmq.color.white,
-      #      UITextAttributeTextShadowColor => rmq.color.gray
-      #    })
-      #  end
+      UINavigationBar.appearance.tap do |o|
+        o.barTintColor = rmq.color('#ececec')
+
+        o.setTitleTextAttributes(
+          UITextAttributeFont => rmq.font.small,
+          UITextAttributeTextShadowColor => rmq.color.clear
+        )
+      end
 
       #  UIBarButtonItem.appearance.tap do |o|
       #    o.setTitleTextAttributes( {
@@ -45,7 +41,6 @@ class StandardAppearance
       #      #UITextAttributeTextShadowColor => rmq.color.clear
       #    }, forState: UIControlStateDisabled)
       #  end
-
     end
   end
 end
