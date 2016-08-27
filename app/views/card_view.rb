@@ -1,33 +1,49 @@
 # Round card (button)
 class CardView < UIButton
+  include SmartView
+  include StateMachine
+
   attr_reader :card_size, :block_size
 
-  def rmq_build
-    @card_size = 58
-    @block_size = 74
+  CARD_SIZE = 58
+  BLOCK_SIZE = 74
 
-    rmq(self).style do |st|
-      st.frame = {w: @card_size, h: @card_size}
-      st.corner_radius = (@card_size / 2)
-      st.background_color = rmq.color('#22c064')
-      st.font = rmq.font.small
+  state :bare do |view|
+    rmq(view).style do |st|
+      st.frame = { w: view.card_size, h: view.card_size }
+      st.corner_radius = (view.card_size / 2)
+      st.font = rmq.font.medium_bold
       st.text_alignment = :center
       st.color = rmq.color.white
     end
+  end
 
-    # number tapped
-    # st.background_color = color('#e0483e')
-    # st.font = font.font_with_name('HelveticaNeue-Bold', 24)
-
-    rmq(self).on(:tap) do |sender, _event|
-      rmq.mp "tapped: #{rmq(sender).data}"
-      rmq(sender).animations.sink_and_throb(
-        after: ->(_did_finish, q) { q.apply_style(:number_tapped) }
-      )
+  state :idle do |view|
+    rmq(view).style do |st|
+      st.background_color = rmq.color('#ccc')
     end
   end
 
-  def debug
-    # rmq(self).data('d')
+  state :active do |view|
+    rmq(view).style do |st|
+      st.background_color = rmq.color('#22c064')
+    end
+  end
+
+  def build
+    @card_size = CARD_SIZE
+    @block_size = BLOCK_SIZE
+
+    transition :idle
+  end
+
+  def events
+    rmq(self).on(:tap) do |sender, _event|
+      rmq.mp "tapped: #{rmq(sender).data}"
+      rmq(sender).animations.throb(
+        after: ->(_did_finish, q) { rmq.mp('animation finished') },
+        duration: 0.1
+      )
+    end
   end
 end

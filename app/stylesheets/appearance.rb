@@ -4,6 +4,7 @@ class StandardAppearance
   def self.apply(_window)
     Dispatch.once do
       UIWindow.appearance.tap do |o|
+        # TODO
         o.tintColor = rmq.color('#f0f0f0')
       end
 
@@ -21,6 +22,7 @@ class StandardAppearance
       # end
 
       UINavigationBar.appearance.tap do |o|
+        # TODO
         o.barTintColor = rmq.color('#e6e6e6')
 
         o.setTitleTextAttributes(
