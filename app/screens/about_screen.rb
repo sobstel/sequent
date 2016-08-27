@@ -1,9 +1,10 @@
 # About
-class AboutScreen < ApplicationScreen
+class AboutScreen < PM::Screen
   title 'About'
   nav_bar true
+  status_bar :none
 
-  stylesheet AboutScreenStylesheet
+  stylesheet ApplicationStylesheet
 
   def on_load
   end

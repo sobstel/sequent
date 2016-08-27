@@ -1,7 +1,5 @@
 class AppDelegate < PM::Delegate
 
-  status_bar true, animation: :fade
-
   # Without this, settings in StandardAppearance will not be correctly applied
   # Remove this if you aren't using StandardAppearance
   ApplicationStylesheet.new(nil).application_setup

@@ -74,9 +74,11 @@ GEM
       ruby_motion_query (>= 1.7.0)
     reset-sim (1.1.1)
     ruby_motion_query (1.7.0)
+    state_machines (0.4.0)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    wisper (2.0.0.rc1)
     xcodeproj (1.1.0)
       activesupport (>= 3)
       claide (>= 1.0.0, < 2.0)
@@ -93,6 +95,8 @@ DEPENDENCIES
   newclear
   rake
   redpotion
+  state_machines
+  wisper (= 2.0.0.rc1)
 
 BUNDLED WITH
-   1.11.2
+   1.12.5

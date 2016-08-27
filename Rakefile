@@ -45,6 +45,7 @@ Motion::Project::App.setup do |app|
   # app.vendor_project('vendor/DSLCalendarView', :static, :cflags => '-fobjc-arc') # Using arc
 
   app.info_plist['UIStatusBarHidden'] = true
+  app.info_plist['UIViewControllerBasedStatusBarAppearance'] = false
 
   app.pods do
     pod 'SDWebImage'
@@ -55,7 +56,7 @@ Motion::Project::App.setup do |app|
 
   app.development do
     # app.codesign_certificate = "iPhone Developer: YOURNAME"
-    # app.provisioning_profile = "signing/sequent.mobileprovision"
+    app.provisioning_profile = "signing/sequent.mobileprovision"
   end
 
   app.release do

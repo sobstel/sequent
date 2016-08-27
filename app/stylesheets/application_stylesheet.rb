@@ -26,6 +26,10 @@ class ApplicationStylesheet < RubyMotionQuery::Stylesheet
     StandardAppearance.apply app.window
   end
 
+  def root_view(st)
+    st.background_color = color('#f3f3f3')
+  end
+
   # def standard_button(st)
   #   st.frame = {w: 40, h: 18}
   #   st.background_color = color.tint

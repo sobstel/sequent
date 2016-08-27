@@ -4,7 +4,7 @@ class StandardAppearance
   def self.apply(_window)
     Dispatch.once do
       UIWindow.appearance.tap do |o|
-        o.tintColor = rmq.color('#f3f3f3')
+        o.tintColor = rmq.color('#f0f0f0')
       end
 
       UILabel.appearance.tap do |o|
@@ -21,7 +21,7 @@ class StandardAppearance
       # end
 
       UINavigationBar.appearance.tap do |o|
-        o.barTintColor = rmq.color('#ececec')
+        o.barTintColor = rmq.color('#e6e6e6')
 
         o.setTitleTextAttributes(
           UITextAttributeFont => rmq.font.small,
