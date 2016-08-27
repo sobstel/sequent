@@ -1,7 +1,9 @@
 # Control (button)
 class PlayButton < UIButton
-  def rmq_build
-    rmq(self).style do |st|
+  include StateMachine
+
+  state :bare do |view|
+    rmq(view).style do |st|
       st.frame = { below_prev: 60, w: 140, h: 46, centered: :horizontal }
       st.background_color = rmq.color('#1352e2')
       st.corner_radius = 23
@@ -12,10 +14,16 @@ class PlayButton < UIButton
       attributed_text.addAttribute(NSForegroundColorAttributeName, value: rmq.color.white, range: attributed_text_range)
       st.attributed_text = attributed_text
     end
+  end
 
-    rmq(self).on(:tap) do |sender|
-
+  state :active do |view|
+    rmq(view).on(:tap) do
       CreateSequence.new.call
     end
+  end
+
+  def rmq_build
+    transition :bare
+    transition :active
   end
 end

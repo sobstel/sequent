@@ -1,6 +1,5 @@
 # Round card (button)
 class CardView < UIButton
-  include SmartView
   include StateMachine
 
   attr_reader :card_size, :block_size
@@ -16,34 +15,37 @@ class CardView < UIButton
       st.text_alignment = :center
       st.color = rmq.color.white
     end
+
+    rmq(view).off(:tap)
   end
 
   state :idle do |view|
     rmq(view).style do |st|
       st.background_color = rmq.color('#ccc')
     end
+
+    rmq(view).off(:tap)
   end
 
   state :active do |view|
     rmq(view).style do |st|
       st.background_color = rmq.color('#22c064')
     end
-  end
 
-  def build
-    @card_size = CARD_SIZE
-    @block_size = BLOCK_SIZE
-
-    transition :idle
-  end
-
-  def events
-    rmq(self).on(:tap) do |sender, _event|
+    rmq(view).on(:tap) do |sender, _event|
       rmq.mp "tapped: #{rmq(sender).data}"
       rmq(sender).animations.throb(
         after: ->(_did_finish, q) { rmq.mp('animation finished') },
         duration: 0.1
       )
     end
+  end
+
+  def rmq_build
+    @card_size = CARD_SIZE
+    @block_size = BLOCK_SIZE
+
+    transition :bare
+    transition :idle
   end
 end

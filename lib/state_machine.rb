@@ -1,8 +1,11 @@
 # State handling
 module StateMachine
+  attr_reader :state
+
   def transition(name)
     raise 'Invalid state' unless self.class.states[name]
     self.class.states[name].call(self)
+    @state = name
   end
 
   def self.included(base)
