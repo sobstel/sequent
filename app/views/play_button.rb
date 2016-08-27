@@ -2,8 +2,8 @@
 class PlayButton < UIButton
   include StateMachine
 
-  state :bare do |view|
-    rmq(view).style do |st|
+  state :bare do
+    rmq(self).style do |st|
       st.frame = { below_prev: 60, w: 140, h: 46, centered: :horizontal }
       st.background_color = rmq.color('#1352e2')
       st.corner_radius = 23
@@ -16,8 +16,8 @@ class PlayButton < UIButton
     end
   end
 
-  state :active do |view|
-    rmq(view).on(:tap) do
+  state :active do
+    rmq(self).on(:tap) do
       CreateSequence.new.call
     end
   end

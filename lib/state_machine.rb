@@ -4,7 +4,7 @@ module StateMachine
 
   def transition(name)
     raise 'Invalid state' unless self.class.states[name]
-    self.class.states[name].call(self)
+    self.class.states[name].call
     @state = name
   end
 
