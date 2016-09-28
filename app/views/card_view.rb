@@ -1,6 +1,6 @@
 # Round card (button)
 class CardView < UIButton
-  include StateMachine
+  include Tractor::State
 
   attr_reader :card_size, :block_size
 
@@ -33,10 +33,11 @@ class CardView < UIButton
     end
 
     rmq(self).off(:tap).on(:tap) do |sender, _event|
-      #TODO send event
+      publish :tap, self:
+      #TODO change status on tap
       rmq.mp "tapped: #{rmq(sender).data}"
       rmq(sender).animations.throb(
-        after: ->(_did_finish, q) { rmq.mp('animation finished') },
+        after: ->(_did_finish, q) { state(:clicked) },
         duration: 0.1
       )
     end

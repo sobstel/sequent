@@ -1,6 +1,6 @@
 # body (circles etc)
 class ChamberView < UIView
-  include StateMachine
+  include Tractor::State
 
   state :bare do
     rmq(self).style do |st|

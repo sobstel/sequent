@@ -1,6 +1,6 @@
 # Control (button)
 class PlayButton < UIButton
-  include StateMachine
+  include Tractor::State
 
   state :bare do
     rmq(self).style do |st|
