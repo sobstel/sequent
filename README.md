@@ -13,3 +13,8 @@ Services
 --------
 
 * Interceptors concept: https://semaphoreci.com/community/tutorials/how-to-reduce-controller-bloat-with-interactors-in-ruby
+
+Tractor
+-------
+
+Home-baked simple event&state-driven game engine.

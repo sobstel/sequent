@@ -3,18 +3,18 @@ require 'set'
 # State handling
 module Tractor
   module State
-    # include PubSub
-
     # current state
     attr_reader :state
 
+    #
+    # @param name [Symbol] State name
+    #
     def transition(name)
       name = name.to_sym
 
       raise 'Invalid state' unless self.class.states.include? name
 
-      # self.class.states[name].call
-      EventBus.publish name
+      publish_state name
 
       @state = name
     end
@@ -26,18 +26,13 @@ module Tractor
     module ClassMethods
       attr_reader :states
 
-      def publish()
-        EventBus.publish(self.class, name: name, self: self)
-      end
-
-      def state(name, &block)
+      def state(name, &blk)
         name = name.to_sym
 
-        # EventBus.subscribe "#{self.class}.#{name}", block
+        subscribe_state name, blk
 
         @states ||= Set.new
         @states.add name
-        # @states[name] = block
       end
     end
   end
