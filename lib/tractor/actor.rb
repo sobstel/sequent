@@ -1,5 +1,5 @@
 module Tractor
-  module Object
+  module Actor
     def self.included(base)
       base.include Tractor::PubSub
       base.include Tractor::State

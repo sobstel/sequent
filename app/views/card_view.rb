@@ -1,6 +1,6 @@
 # Round card (button)
 class CardView < UIButton
-  include Tractor::Object
+  include Tractor::Actor
 
   attr_reader :card_size, :block_size
 
