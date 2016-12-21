@@ -14,7 +14,7 @@ export default function sequent (platform) {
 
       return (
         <Provider store={store}>
-          <App></App>
+          <App/>
         </Provider>
       );
     }

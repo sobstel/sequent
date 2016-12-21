@@ -1,23 +1,30 @@
+
 import React, { Component } from 'react';
 import {
+  StatusBar,
   StyleSheet,
   Text,
   View
 } from 'react-native';
 
+import Board from './board'
+import ControlButton from './control_button'
+import Footer from './footer'
+import Header from './header'
+import LevelPicker from './level_picker'
+import Timer from './timer'
+
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to Sequent!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, click start
-        </Text>
-        <Text style={styles.instructions}>
-          Cmd+D for dev menu
-        </Text>
+        <StatusBar hidden/>
+        <Header/>
+        <ControlButton/>
+        <LevelPicker/>
+        <Board/>
+        <Timer/>
+        <Footer/>
       </View>
     );
   }
@@ -26,18 +33,5 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#eee',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'left',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginTop: 10,
-  },
+  }
 });
