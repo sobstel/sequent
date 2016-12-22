@@ -1,5 +1,1 @@
-'use strict'
-
-import sequent from './src/sequent'
-
-sequent('ios')
+import './src/sequent'

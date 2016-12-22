@@ -6,20 +6,16 @@ import { createStore } from 'redux'
 
 import App from './components/app'
 
-export default function sequent (platform) {
+class Sequent extends Component {
+  render() {
+    let store = createStore(() => {})
 
-  class Sequent extends Component {
-    render() {
-      let store = createStore(() => {})
-
-      return (
-        <Provider store={store}>
-          <App/>
-        </Provider>
-      );
-    }
+    return (
+      <Provider store={store}>
+        <App/>
+      </Provider>
+    );
   }
-
-  AppRegistry.registerComponent('sequent', () => Sequent);
-
 }
+
+AppRegistry.registerComponent('sequent', () => Sequent);

@@ -29,9 +29,8 @@ export default class Board extends Component {
 
 const styles = StyleSheet.create({
   board: {
-    flex: 1,
-    alignItems: 'center',
     flexWrap: 'wrap',
     flexDirection: 'row',
+    justifyContent: 'center',
   }
 });
