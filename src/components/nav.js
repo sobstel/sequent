@@ -21,14 +21,14 @@ class Nav extends Component {
   }
 
   renderIcon(name, iconName) {
-    let localStyles = [];
+    let dynamicStyles = [];
 
     if (name == this.props.routes.scene.name) {
-      localStyles.push(styles.activeIconWrapper);
+      dynamicStyles.push(styles.activeIconWrapper);
     }
 
     return (
-      <TouchableHighlight style={[styles.iconWrapper, ...localStyles]} onPress={Actions[name]}>
+      <TouchableHighlight style={[styles.iconWrapper, ...dynamicStyles]} onPress={Actions[name]}>
         <Icon name={iconName} style={styles.icon}/>
       </TouchableHighlight>
     );

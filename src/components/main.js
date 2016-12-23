@@ -9,10 +9,12 @@ import Nav from './nav';
 import LevelPicker from './level_picker';
 import Timer from './timer';
 
+import commonStyles from './../styles/common';
+
 export default class Main extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View style={[commonStyles.scene, styles.container]}>
         <Header title="Sequent"/>
         <LevelPicker/>
         <ControlButton/>
@@ -26,9 +28,5 @@ export default class Main extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    backgroundColor: 'lightskyblue',
   },
 });

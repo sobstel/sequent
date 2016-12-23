@@ -5,13 +5,15 @@ import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import Header from './header';
 import Nav from './nav';
 
+import commonStyles from './../styles/common';
+
 export default class About extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View style={[commonStyles.scene, styles.container]}>
         <StatusBar hidden/>
         <Header title="About"/>
-
+        <Text>TO DO</Text>
         <Nav/>
       </View>
     );
@@ -20,9 +22,5 @@ export default class About extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    backgroundColor: 'lightskyblue',
   },
 });

@@ -9,6 +9,8 @@ import About from './components/about'
 import History from './components/history'
 import Main from './components/main'
 
+import commonStyles from './styles/common';
+
 const RouterWithRedux = connect()(Router);
 import reducers from './reducers';
 
@@ -22,7 +24,7 @@ class Sequent extends Component {
     return (
       <Provider store={store}>
         <RouterWithRedux>
-          <Scene key="root" hideNavBar={true} style={styles.container}>
+          <Scene key="root" hideNavBar={true} style={commonStyles.rootScene}>
             <Scene key="main" component={Main} initial={true} duration="0"/>
             <Scene key="history" component={History} duration="0"/>
             <Scene key="about" component={About} duration="0"/>
@@ -32,11 +34,5 @@ class Sequent extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'lightskyblue',
-  },
-});
 
 AppRegistry.registerComponent('sequent', () => Sequent);

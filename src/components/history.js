@@ -5,10 +5,12 @@ import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import Header from './header';
 import Nav from './nav';
 
+import commonStyles from './../styles/common';
+
 export default class History extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View style={[commonStyles.scene, styles.container]}>
         <StatusBar hidden/>
         <Header title="Best Results"/>
         <Text>TO DO</Text>
@@ -20,9 +22,5 @@ export default class History extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    backgroundColor: 'lightskyblue',
   },
 });
