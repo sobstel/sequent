@@ -10,9 +10,17 @@ import {
 export default class Timer extends Component {
   render() {
     return (
-      <View>
-        <Text>Timer</Text>
+      <View style={styles.container}>
+        <Text style={styles.text}>Timer</Text>
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+  },
+  text: {
+    textAlign: 'center',
+  }
+});
