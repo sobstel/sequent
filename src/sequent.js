@@ -1,13 +1,13 @@
 
 import React, { Component } from 'react';
-import { AppRegistry, StatusBar, StyleSheet } from 'react-native';
+import { AppRegistry, StyleSheet } from 'react-native';
 import { Router, Scene } from 'react-native-router-flux';
 import { connect, Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 
-import About from './components/about'
-import History from './components/history'
-import Main from './components/main'
+import About from './scenes/about'
+import History from './scenes/history'
+import Main from './scenes/main'
 
 import commonStyles from './styles/common';
 

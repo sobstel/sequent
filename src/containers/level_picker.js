@@ -1,6 +1,7 @@
 
 import { connect } from 'react-redux';
 
+import { changeLevel } from '../actions'
 import Level from './../components/level';
 
 const mapStateToProps = (state) => {
@@ -11,6 +12,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    onPress: () => { dispatch(changeLevel()); },
   }
 }
 

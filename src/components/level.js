@@ -8,11 +8,28 @@ class Level extends Component {
   }
 
   render() {
+    const { level, onPress } = this.props;
+
     return (
       <View style={styles.container}>
-        <Text style={styles.level}>Impossible (16)</Text>
+        <Text style={styles.level} onPress={onPress}>
+          {this.getLabelText()} ({level})
+        </Text>
       </View>
     )
+  }
+
+  getLabelText() {
+    const { level } = this.props;
+
+    switch (level) {
+      case 4: return 'beginner';
+      case 8: return 'normal';
+      case 12: return 'hard';
+      case 16: return 'impossible';
+    }
+
+    return 'unknown';
   }
 }
 

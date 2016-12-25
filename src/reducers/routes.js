@@ -1,3 +1,4 @@
+
 import { ActionConst } from 'react-native-router-flux';
 
 const initialState = {

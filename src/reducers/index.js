@@ -1,9 +1,9 @@
 
 import { combineReducers } from 'redux';
+import level from './level';
 import routes from './routes';
-// ... other reducers
 
 export default combineReducers({
+  level,
   routes,
-  // ... other reducers
 });
