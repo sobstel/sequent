@@ -1,13 +1,12 @@
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-import {
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+class Level extends Component {
+  static propTypes = {
+    level: PropTypes.number.isRequired,
+  }
 
-export default class LevelPicker extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -28,3 +27,5 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
 });
+
+export default Level;
