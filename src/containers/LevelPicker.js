@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 
 import { changeLevel } from '../actions'
-import Level from './../components/level';
+import Level from './../components/Level';
 
 const mapStateToProps = (state) => {
   return {

@@ -7,7 +7,7 @@ import {
   View
 } from 'react-native';
 
-import Chip from './chip'
+import Chip from './Chip'
 
 export default class Board extends Component {
   render() {

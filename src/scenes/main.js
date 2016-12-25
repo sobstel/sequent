@@ -2,12 +2,12 @@
 import React, { Component } from 'react';
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
 
-import Board from '../components/board';
-import ControlButton from '../components/control_button';
-import Header from '../components/header';
-import Nav from '../components/nav';
-import LevelPicker from '../containers/level_picker';
-import Timer from '../components/timer';
+import Board from '../components/Board';
+import ControlButton from '../components/ControlButton';
+import Header from '../components/Header';
+import Nav from '../components/Nav';
+import LevelPicker from '../containers/LevelPicker';
+import Timer from '../components/Timer';
 
 import commonStyles from '../styles/common';
 

@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
 
-import Header from '../components/header';
-import Nav from '../components/nav';
+import Header from '../components/Header';
+import Nav from '../components/Nav';
 
 import commonStyles from './../styles/common';
 

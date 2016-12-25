@@ -5,9 +5,9 @@ import { Router, Scene } from 'react-native-router-flux';
 import { connect, Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 
-import About from './scenes/about'
-import History from './scenes/history'
-import Main from './scenes/main'
+import Main from './scenes/Main'
+import History from './scenes/History'
+import About from './scenes/About'
 
 import commonStyles from './styles/common';
 
