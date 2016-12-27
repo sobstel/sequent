@@ -1,21 +1,22 @@
 
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 
-import { changeLevel } from '../actions'
-import Level from './../components/Level';
+import Level from './../components/Level'
 
 const mapStateToProps = (state) => {
   return {
-    level: state.level,
-  }
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onPress: () => { dispatch(changeLevel()); },
+    level: state.level
   }
 }
 
-const LevelPicker = connect(mapStateToProps, mapDispatchToProps)(Level);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeLevel: () => {
+      dispatch({ type: 'CHANGE_LEVEL' })
+    }
+  }
+}
 
-export default LevelPicker;
+const LevelPicker = connect(mapStateToProps, mapDispatchToProps)(Level)
+
+export default LevelPicker

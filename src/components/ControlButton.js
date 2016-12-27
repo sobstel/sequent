@@ -1,33 +1,19 @@
 
-import React, { Component } from 'react';
-
-import {
-  Button,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  TouchableOpacity,
-  View
-} from 'react-native';
+import React, { Component } from 'react'
+import { StyleSheet, Text, TouchableHighlight } from 'react-native'
 
 export default class ControlButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { label: 'Start' };
+  render () {
+    const { gameStarted, startGame, stopGame } = this.props
 
-    this.onPress = this.onPress.bind(this);
-  }
+    const onPress = gameStarted ? stopGame : startGame
+    const label = gameStarted ? 'Stop' : 'Start'
 
-  render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.label} onPress={this.onPress}>{this.state.label.toUpperCase()}</Text>
-      </View>
+      <TouchableHighlight style={styles.container} onPress={onPress}>
+        <Text style={styles.label}>{label.toUpperCase()}</Text>
+      </TouchableHighlight>
     )
-  }
-
-  onPress() {
-    this.setState({label: 'Stop'});
   }
 }
 
@@ -37,13 +23,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'saddlebrown',
     borderRadius: 20,
     paddingHorizontal: 25,
-    paddingVertical: 10,
+    paddingVertical: 10
   },
   label: {
     color: 'white',
     fontFamily: 'HelveticaNeue',
     fontSize: 16,
     fontWeight: '400',
-    letterSpacing: 2,
-  },
-});
+    letterSpacing: 2
+  }
+})

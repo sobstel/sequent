@@ -1,9 +1,9 @@
 
-import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
 export default class Header extends Component {
-  render() {
+  render () {
     return (
       <View>
         <Text style={styles.title}>{this.props.title.toUpperCase()}</Text>
@@ -19,6 +19,6 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     textAlign: 'center',
     marginTop: 15,
-    color: 'darkslategray',
+    color: 'darkslategray'
   }
-});
+})

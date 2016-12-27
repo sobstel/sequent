@@ -1,14 +1,9 @@
 
-import React, { Component } from 'react';
-
-import {
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import React, { Component } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
 export default class Timer extends Component {
-  render() {
+  render () {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Timer</Text>
@@ -21,6 +16,6 @@ const styles = StyleSheet.create({
   container: {
   },
   text: {
-    textAlign: 'center',
+    textAlign: 'center'
   }
-});
+})

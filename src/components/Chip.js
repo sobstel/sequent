@@ -1,14 +1,9 @@
 
-import React, { Component } from 'react';
-
-import {
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import React, { Component } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
 export default class Chip extends Component {
-  render() {
+  render () {
     return (
       <View style={styles.chip}>
         <Text style={styles.text}>{this.props.number}</Text>
@@ -26,11 +21,11 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   text: {
     fontSize: 20,
     fontWeight: '500',
-    color: '#ffffff',
+    color: '#ffffff'
   }
-});
+})

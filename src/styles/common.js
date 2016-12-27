@@ -1,16 +1,16 @@
 
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-const bgColor = 'lightskyblue';
+const bgColor = 'lightskyblue'
 
 export default StyleSheet.create({
   rootScene: {
-    backgroundColor: bgColor,
+    backgroundColor: bgColor
   },
   scene: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
-    backgroundColor: bgColor,
-  },
-});
+    backgroundColor: bgColor
+  }
+})

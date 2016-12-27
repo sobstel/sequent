@@ -6,10 +6,6 @@ import { Actions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
 class Nav extends Component {
-  static propTypes = {
-    routes: PropTypes.object,
-  };
-
   render() {
     return (
       <View style={styles.container}>
@@ -33,6 +29,10 @@ class Nav extends Component {
       </TouchableHighlight>
     );
   }
+}
+
+Nav.propTypes = {
+  routes: PropTypes.object
 }
 
 export default connect(({routes}) => ({routes}))(Nav);
