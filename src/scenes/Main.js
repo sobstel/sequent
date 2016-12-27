@@ -2,12 +2,13 @@
 import React, { Component } from 'react'
 import { StatusBar, StyleSheet, View } from 'react-native'
 
-import BoardContainer from '../containers/BoardContainer'
-import ControlButtonContainer from '../containers/ControlButtonContainer'
 import Header from '../components/Header'
 import Nav from '../components/Nav'
+
+import BoardContainer from '../containers/BoardContainer'
+import GameControl from '../containers/GameControl'
 import LevelPicker from '../containers/LevelPicker'
-import Timer from '../components/Timer'
+import ElapsedTime from '../containers/ElapsedTime'
 
 import commonStyles from '../styles/common'
 
@@ -18,9 +19,9 @@ export default class Main extends Component {
         <StatusBar hidden />
         <Header title='Sequent' />
         <LevelPicker />
-        <ControlButtonContainer />
+        <GameControl />
         <BoardContainer />
-        <Timer />
+        <ElapsedTime />
         <Nav />
       </View>
     )

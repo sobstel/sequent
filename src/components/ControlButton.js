@@ -4,10 +4,7 @@ import { StyleSheet, Text, TouchableHighlight } from 'react-native'
 
 export default class ControlButton extends Component {
   render () {
-    const { gameStarted, startGame, stopGame } = this.props
-
-    const onPress = gameStarted ? stopGame : startGame
-    const label = gameStarted ? 'Stop' : 'Start'
+    const { label, onPress } = this.props
 
     return (
       <TouchableHighlight style={styles.container} onPress={onPress}>

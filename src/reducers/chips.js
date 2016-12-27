@@ -7,6 +7,6 @@ for (var i = 0; i < 16; i++) {
   })
 }
 
-export default function reducer (state = initialState, action = {}) {  
+export default function reducer (state = initialState, action = {}) {
   return state
 }
