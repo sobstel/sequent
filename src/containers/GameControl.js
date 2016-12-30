@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onPress: () => {
-      dispatch({ type: 'TOGGLE_GAME' })
+      dispatch({ type: 'TOGGLE_GAME', now: Date.now() })
     }
   }
 }

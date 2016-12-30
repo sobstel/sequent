@@ -8,11 +8,11 @@ const initialState = {
   won: null // true|false
 }
 
-function startGame (state) {
+function startGame (state, now) {
   return {
     ...state,
     started: true,
-    startedAt: Date.now(),
+    startedAt: now,
     endedAt: null
   }
 }
@@ -28,8 +28,9 @@ function stopGame (state) {
 
 export default function reducer (state = initialState, action = {}) {
   switch (action.type) {
+    // smell: not used anywhere at the moment
     case 'START_GAME':
-      return startGame(state)
+      return startGame(state, action.now)
 
     case 'STOP_GAME':
     case 'CHANGE_LEVEL':
@@ -37,13 +38,13 @@ export default function reducer (state = initialState, action = {}) {
       return stopGame(state)
 
     case 'TOGGLE_GAME':
-      return (state.started ? stopGame(state) : startGame(state))
+      return (state.started ? stopGame(state) : startGame(state, action.now))
 
     case 'END_GAME':
       return {
         ...state,
         started: false,
-        endedAt: Date.now()
+        endedAt: action.now
       }
   }
 

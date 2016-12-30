@@ -5,6 +5,9 @@ import Time from './../components/Time'
 
 const mapStateToProps = (state) => {
   return {
+    started: state.game.started,
+    startedAt: state.game.startedAt,
+    endedAt: state.game.endedAt
   }
 }
 
