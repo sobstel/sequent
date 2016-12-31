@@ -5,7 +5,7 @@ import Level from './../components/Level'
 
 const mapStateToProps = (state) => {
   return {
-    level: state.level
+    level: state.game.level
   }
 }
 

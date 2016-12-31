@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onPress: () => {
+    onPress: (level) => {
       dispatch({ type: 'TOGGLE_GAME', now: Date.now() })
     }
   }

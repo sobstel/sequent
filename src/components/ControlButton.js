@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { StyleSheet, Text, TouchableHighlight } from 'react-native'
 
 export default class ControlButton extends Component {
@@ -12,6 +12,10 @@ export default class ControlButton extends Component {
       </TouchableHighlight>
     )
   }
+}
+
+ControlButton.propTypes = {
+  label: PropTypes.string.isRequired
 }
 
 const styles = StyleSheet.create({

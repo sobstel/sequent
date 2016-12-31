@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 export default class Time extends Component {
@@ -10,7 +10,7 @@ export default class Time extends Component {
 
   componentWillReceiveProps (props) {
     if (props.started) {
-      this.interval = setInterval(() => this.setState({ time: Date.now() - props.startedAt }), 1)
+      this.interval = setInterval(() => this.setState({ time: Date.now() - props.startedAt }), 10)
     } else {
       clearInterval(this.interval)
 
@@ -33,6 +33,12 @@ export default class Time extends Component {
 
     return leftPart + '.' + rightPart
   }
+}
+
+Time.propTypes = {
+  started: PropTypes.bool.isRequired,
+  startedAt: PropTypes.number,
+  endedAt: PropTypes.number
 }
 
 const styles = StyleSheet.create({
