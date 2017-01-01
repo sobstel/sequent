@@ -9,7 +9,8 @@ const initialState = {
   endedAt: null,
   won: null,
   level: levels[0],
-  chips: generateChips(levels[levels.length - 1], false)
+  chips: generateChips(levels[levels.length - 1], false),
+  seq: null
 }
 
 function generateChips (n, random = true) {
@@ -18,7 +19,7 @@ function generateChips (n, random = true) {
 
   for (i = 0; i < 16; i++) {
     const number = (i < n ? i + 1 : null)
-    chips.push({ id: i, number: number, status: null, disabled: true })
+    chips.push({ id: i, number: number, status: 'disabled' })
   }
 
   if (random) {
@@ -36,7 +37,7 @@ function generateChips (n, random = true) {
 function startGame (state, now) {
   const chips = generateChips(state.level, true)
 
-  chips.filter((chip) => chip.number !== null).map((chip) => { chip.disabled = false; return chip })
+  chips.filter((chip) => chip.number !== null).map((chip) => { chip.status = 'disabled'; return chip })
   chips.filter((chip) => chip.number == null).map((chip) => { chip.status = 'idle'; return chip })
   chips.find((chip) => chip.number === 1).status = 'highlighted'
 
@@ -45,7 +46,8 @@ function startGame (state, now) {
     started: true,
     startedAt: now,
     endedAt: null,
-    chips: chips
+    chips: chips,
+    seq: 1
   }
 }
 
@@ -54,7 +56,9 @@ function stopGame (state) {
     ...state,
     started: false,
     startedAt: null,
-    endedAt: null
+    endedAt: null,
+    chips: generateChips(levels[levels.length - 1], false),
+    seq: null
   }
 }
 
@@ -79,22 +83,62 @@ export default function reducer (state = initialState, action = {}) {
 
     case 'PICK_CHIP':
       let chip = state.chips[action.id]
+      let seq = state.seq + 1
 
       if (chip.number === 1) {
         return {
           ...state,
           chips: state.chips.map((chip) => {
-            if (chip.number !== null && chip.number !== 1) {
+            if (chip.number === 1) {
+              chip.status = 'correct'
+            } else if (chip.number !== null) {
               chip.status = 'hidden'
             }
             return chip
-          })
+          }),
+          seq: seq
+        }
+      }
+
+      if (chip.number === state.seq) {
+        chip.status = 'correct'
+
+        if (chip.number === state.level) {
+          return {
+            ...state,
+            started: false,
+            endedAt: Date.now(),
+            won: true,
+            chips: [ ...state.chips.slice(0, action.id), chip, ...state.chips.slice(action.id + 1) ],
+            seq: null
+          }
+        }
+
+      } else {
+        chip.status = 'incorrect'
+
+        let chips = [ ...state.chips.slice(0, action.id), chip, ...state.chips.slice(action.id + 1) ]
+        chips = chips.map((chip) => {
+          if (chip.status === 'hidden') {
+            chip.status = 'disabled'
+          }
+          return chip
+        })
+
+        return {
+          ...state,
+          started: false,
+          endedAt: Date.now(),
+          won: false,
+          chips: chips,
+          seq: seq
         }
       }
 
       return {
         ...state,
-        chips: [ ...state.chips.slice(0, action.id), chip, ...state.chips.slice(action.id + 1) ]
+        chips: [ ...state.chips.slice(0, action.id), chip, ...state.chips.slice(action.id + 1) ],
+        seq: seq
       }
   }
 

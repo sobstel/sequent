@@ -9,7 +9,7 @@ export default class Chip extends Component {
     const { chip, onPress } = this.props
 
     return (
-      <TouchableHighlight style={[styles.chip, this.styles()]} onPress={() => onPress(chip.id)} disabled={chip.disabled}>
+      <TouchableHighlight style={[styles.chip, this.styles()]} onPress={() => onPress(chip.id)} disabled={this.isDisabled()}>
         {this.renderText()}
       </TouchableHighlight>
     )
@@ -25,6 +25,11 @@ export default class Chip extends Component {
     return (
       <Text style={styles.text}>{chip.number}</Text>
     )
+  }
+
+  isDisabled () {
+    const { chip } = this.props
+    return (chip.status !== 'highlighted' && chip.status !== 'hidden')
   }
 
   styles () {
@@ -52,6 +57,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'rebeccapurple'
   },
   hidden: {
+  },
+  disabled: {
+    backgroundColor: '#444'
+  },
+  correct: {
+    backgroundColor: 'green'
+  },
+  incorrect: {
+    backgroundColor: 'red'
   },
   text: {
     fontSize: 20,
