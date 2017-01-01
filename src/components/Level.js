@@ -2,12 +2,14 @@
 import React, { Component, PropTypes } from 'react'
 import { StyleSheet, Text, TouchableHighlight } from 'react-native'
 
+import { bgColor } from '../styles/common'
+
 class Level extends Component {
   render () {
     const { level, changeLevel } = this.props
 
     return (
-      <TouchableHighlight style={styles.container} onPress={changeLevel} underlayColor='lightskyblue'>
+      <TouchableHighlight style={styles.container} onPress={changeLevel} underlayColor={bgColor}>
         <Text style={styles.level}>
           {this.getLevelName()} ({level})
         </Text>
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
   },
   level: {
     color: 'saddlebrown',
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: '500'
   }
 })

@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
   label: {
     color: 'white',
     fontFamily: 'HelveticaNeue',
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: '400',
-    letterSpacing: 2
+    letterSpacing: 3
   }
 })

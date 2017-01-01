@@ -6,14 +6,15 @@ import Chip from './Chip'
 
 export default class Board extends Component {
   render () {
-    const { chips } = this.props
+    const { chips, onChipPress } = this.props
 
     return (
       <View style={styles.board}>
         {chips.map(chip =>
           <Chip
             key={chip.id}
-            number={chip.number} />
+            chip={chip}
+            onPress={onChipPress} />
         )}
       </View>
     )

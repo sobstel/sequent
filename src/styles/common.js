@@ -1,7 +1,7 @@
 
 import { StyleSheet } from 'react-native'
 
-const bgColor = 'lightskyblue'
+export const bgColor = 'lightskyblue'
 
 export default StyleSheet.create({
   rootScene: {

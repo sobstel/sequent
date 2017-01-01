@@ -1,14 +1,36 @@
 
 import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableHighlight } from 'react-native'
+
+import { bgColor } from '../styles/common'
 
 export default class Chip extends Component {
   render () {
+    const { chip, onPress } = this.props
+
     return (
-      <View style={styles.chip}>
-        <Text style={styles.text}>{this.props.number}</Text>
-      </View>
+      <TouchableHighlight style={[styles.chip, this.styles()]} onPress={() => onPress(chip.id)} disabled={chip.disabled}>
+        {this.renderText()}
+      </TouchableHighlight>
     )
+  }
+
+  renderText () {
+    const { chip } = this.props
+
+    if (chip.status === 'hidden') {
+      return (<Text />)
+    }
+
+    return (
+      <Text style={styles.text}>{chip.number}</Text>
+    )
+  }
+
+  styles () {
+    const { chip } = this.props
+
+    return chip.status ? styles[chip.status] : {}
   }
 }
 
@@ -22,6 +44,14 @@ const styles = StyleSheet.create({
     height: 60,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  idle: {
+    backgroundColor: bgColor
+  },
+  highlighted: {
+    backgroundColor: 'rebeccapurple'
+  },
+  hidden: {
   },
   text: {
     fontSize: 20,
