@@ -89,6 +89,7 @@ const game = {
       started: true,
       startedAt: action.now,
       endedAt: null,
+      won: null,
       chips: chips,
       seq: 1
     }

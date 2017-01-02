@@ -22,16 +22,34 @@ export default class Time extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>{this.formatTime(this.state.time)}</Text>
+        <Text style={[styles.text, this.styles()]}>{this.formatTime(this.state.time)}</Text>
       </View>
     )
   }
 
   formatTime (time) {
-    const leftPart = String('00' + parseInt(time / 1000)).slice(-2)
-    const rightPart = String('00' + parseInt(time / 10)).slice(-2)
+    let leftPart = parseInt(time / 1000)
+    if (leftPart < 10) {
+      leftPart = String('0' + leftPart).slice(-2)
+    }
+
+    const rightPart = String('0' + parseInt(time / 10)).slice(-2)
 
     return leftPart + '.' + rightPart
+  }
+
+  styles () {
+    const { won } = this.props
+
+    if (won === true) {
+      return styles.won
+    }
+
+    if (won === false) {
+      return styles.lost
+    }
+
+    return {}
   }
 }
 
@@ -48,5 +66,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Courier',
     fontSize: 20,
     textAlign: 'center'
+  },
+  won: {
+    color: 'seagreen'
+  },
+  lost: {
+    color: 'indianred'
   }
 })
