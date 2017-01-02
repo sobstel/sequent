@@ -35,6 +35,10 @@ export default function reducer (state = initialState, action = {}) {
     case 'PICK_CHIP':
       let chip = state.chips[action.id]
 
+      if (chip.number !== state.seq) {
+        return game.invalidChip(state, action, chip)
+      }
+
       if (chip.number === 1) {
         return game.firstChip(state, action, chip)
       }
@@ -46,8 +50,6 @@ export default function reducer (state = initialState, action = {}) {
       if (chip.number === state.seq) {
         return game.validChip(state, action, chip)
       }
-
-      return game.invalidChip(state, action, chip)
   }
 
   return state
@@ -143,8 +145,8 @@ const game = {
 
   invalidChip: (state, action, chip) => {
     chip.status = 'invalid'
-
     let chips = [ ...state.chips.slice(0, action.id), chip, ...state.chips.slice(action.id + 1) ]
+
     chips = chips.map((chip) => {
       if (chip.status === 'hidden') {
         chip.status = 'disabled'
