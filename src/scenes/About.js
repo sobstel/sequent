@@ -13,7 +13,7 @@ export default class About extends Component {
       <View style={[commonStyles.scene, styles.container]}>
         <StatusBar hidden />
         <Header title='About' />
-        <Text>TO DO</Text>
+        <Text style={styles.text}>under construction</Text>
         <Nav />
       </View>
     )
@@ -22,5 +22,8 @@ export default class About extends Component {
 
 const styles = StyleSheet.create({
   container: {
+  },
+  text: {
+    textAlign: 'center'
   }
 })

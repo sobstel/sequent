@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onChipPress: (id) => {
-      dispatch({ type: 'PICK_CHIP', id: id })
+      dispatch({ type: 'PICK_CHIP', id: id, now: Date.now() })
     }
   }
 }

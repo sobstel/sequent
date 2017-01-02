@@ -61,11 +61,11 @@ const styles = StyleSheet.create({
   disabled: {
     backgroundColor: '#444'
   },
-  correct: {
-    backgroundColor: 'green'
+  valid: {
+    backgroundColor: 'seagreen'
   },
-  incorrect: {
-    backgroundColor: 'red'
+  invalid: {
+    backgroundColor: 'indianred'
   },
   text: {
     fontSize: 20,
