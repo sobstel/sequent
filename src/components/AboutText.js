@@ -11,8 +11,8 @@ export default class AboutText extends Component {
           Short-term memory training game. Remember the sequential order of numbers displaying on your screen.
         </Text>
         <Text style={styles.text}>
-          Inspired by Ayumu. His performance in the tasks was superior to that of comparably trained university
-          students. Young chimpanzees simply have better working memory than you.
+          Inspired by Ayumu. His performance was superior to that of comparably trained university
+          students. Young chimpanzees have better working memory than you!
         </Text>
         <Image style={styles.image} source={require('../images/ayumu.gif')} />
       </View>
