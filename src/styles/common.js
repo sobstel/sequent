@@ -5,12 +5,13 @@ export const bgColor = 'lightskyblue'
 
 export default StyleSheet.create({
   rootScene: {
-    backgroundColor: bgColor
+    backgroundColor: 'black'
   },
   scene: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
-    backgroundColor: bgColor
+    backgroundColor: bgColor,
+    borderRadius: 20
   }
 })

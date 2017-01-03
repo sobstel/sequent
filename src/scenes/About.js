@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react'
-import { StatusBar, StyleSheet, Text, View } from 'react-native'
+import { StatusBar, StyleSheet, View } from 'react-native'
 
+import AboutText from '../components/AboutText'
 import Header from '../components/Header'
 import Nav from '../components/Nav'
 
@@ -13,7 +14,7 @@ export default class About extends Component {
       <View style={[commonStyles.scene, styles.container]}>
         <StatusBar hidden />
         <Header title='About' />
-        <Text style={styles.text}>under construction</Text>
+        <AboutText />
         <Nav />
       </View>
     )
