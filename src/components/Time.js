@@ -2,6 +2,8 @@
 import React, { Component, PropTypes } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
+import { formatTime } from '../lib/format'
+
 export default class Time extends Component {
   constructor () {
     super()
@@ -22,20 +24,9 @@ export default class Time extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <Text style={[styles.text, this.styles()]}>{this.formatTime(this.state.time)}</Text>
+        <Text style={[styles.text, this.styles()]}>{formatTime(this.state.time)}</Text>
       </View>
     )
-  }
-
-  formatTime (time) {
-    let leftPart = parseInt(time / 1000)
-    if (leftPart < 10) {
-      leftPart = String('0' + leftPart).slice(-2)
-    }
-
-    const rightPart = String('0' + parseInt(time / 10)).slice(-2)
-
-    return leftPart + '.' + rightPart
   }
 
   styles () {

@@ -18,8 +18,8 @@ export default class Main extends Component {
       <View style={[commonStyles.scene, styles.container]}>
         <StatusBar hidden />
         <Header title='Sequent' />
-        <LevelPicker />
         <GameControl />
+        <LevelPicker />
         <BoardContainer />
         <ElapsedTime />
         <Nav />

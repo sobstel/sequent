@@ -1,7 +1,8 @@
 
+import { AsyncStorage } from 'react-native'
 import { ActionConst } from 'react-native-router-flux'
 
-const levels = [4, 8, 12, 16]
+import { levels } from '../lib/settings'
 
 const initialState = {
   started: false,
@@ -10,7 +11,11 @@ const initialState = {
   won: null,
   level: levels[0],
   chips: generateChips(levels[levels.length - 1], false),
-  seq: null
+  seq: null,
+  hiscore: levels.reduce((state, level) => {
+    state[level] = []
+    return state
+  }, {})
 }
 
 export default function reducer (state = initialState, action = {}) {
@@ -101,6 +106,7 @@ const game = {
       started: false,
       startedAt: null,
       endedAt: null,
+      won: null,
       chips: generateChips(levels[levels.length - 1], false),
       seq: null
     }
@@ -124,13 +130,20 @@ const game = {
   win: (state, action, chip) => {
     chip.status = 'valid'
 
+    const item = { date: action.now, result: action.now - state.startedAt }
+    const hiscore = state.hiscore
+    hiscore[state.level] = hiscore[state.level].concat(item).sort((a, b) => { return a.result - b.result }).slice(0, 50)
+
+    AsyncStorage.setItem('@Sequent:hiscore', JSON.stringify(hiscore))
+
     return {
       ...state,
       started: false,
       endedAt: action.now,
       won: true,
       chips: [ ...state.chips.slice(0, action.id), chip, ...state.chips.slice(action.id + 1) ],
-      seq: null
+      seq: null,
+      hiscore: hiscore
     }
   },
 

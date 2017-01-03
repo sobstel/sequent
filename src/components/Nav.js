@@ -10,7 +10,7 @@ class Nav extends Component {
     return (
       <View style={styles.container}>
         {this.renderIcon('main', 'play')}
-        {this.renderIcon('history', 'trophy')}
+        {this.renderIcon('hiscore', 'trophy')}
         {this.renderIcon('about', 'question')}
       </View>
     )
@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginBottom: 25
+    marginBottom: 25,
+    marginTop: 25
   },
   iconWrapper: {
     backgroundColor: 'saddlebrown',

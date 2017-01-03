@@ -37,8 +37,7 @@ Level.propTypes = {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    justifyContent: 'center'
+    alignItems: 'center'
   },
   level: {
     color: 'saddlebrown',
