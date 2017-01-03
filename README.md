@@ -6,10 +6,10 @@ displaying on your screen.
 
 Free, no ads, open source. Created in React Native as a learning experiment.
 
-![demo](sequent/src/images/demo.gif)
+![demo](https://raw.githubusercontent.com/sobstel/sequent/master/src/images/demo.gif)
 
 Inspired by **Ayumu**. His performance in the tasks was superior to that
 of comparably trained university students. Young chimpanzees simply
 have better working memory than you.
 
-![ayumu](sequent/src/images/ayumu.gif)
+![ayumu](https://raw.githubusercontent.com/sobstel/sequent/master/src/images/ayumu.gif)
