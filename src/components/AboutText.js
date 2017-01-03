@@ -8,15 +8,11 @@ export default class AboutText extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>
-          Ayumu participated in a series of short-term memory tasks, such as to remember
-          the sequential order of numbers displaying on a touch-sensitive computer screen.
+          Short-term memory training game. Remember the sequential order of numbers displaying on your screen.
         </Text>
         <Text style={styles.text}>
-          His performance in the tasks was superior to that of comparably trained university
-          students.
-        </Text>
-        <Text style={styles.text}>
-          Young chimpanzees have better working memory than you.
+          Inspired by Ayumu. His performance in the tasks was superior to that of comparably trained university
+          students. Young chimpanzees simply have better working memory than you.
         </Text>
         <Image style={styles.image} source={require('../images/ayumu.gif')} />
       </View>
