@@ -86,8 +86,20 @@ const game = {
   start: (state, action) => {
     const chips = generateChips(state.level, true)
 
-    chips.filter((chip) => chip.number !== null).map((chip) => { chip.status = 'disabled'; return chip })
-    chips.filter((chip) => chip.number == null).map((chip) => { chip.status = 'idle'; return chip })
+    chips
+      .filter((chip) => chip.number !== null)
+      .map((chip) => {
+        chip.status = 'disabled'
+        return chip
+      })
+
+    chips
+      .filter((chip) => chip.number == null)
+      .map((chip) => {
+        chip.status = 'idle'
+        return chip
+      })
+
     chips.find((chip) => chip.number === 1).status = 'highlighted'
 
     return {
