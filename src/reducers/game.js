@@ -1,6 +1,7 @@
 
 import { AsyncStorage } from 'react-native'
 import { ActionConst } from 'react-native-router-flux'
+import { knuthShuffle } from 'knuth-shuffle'
 
 import { levels } from '../lib/settings'
 
@@ -70,7 +71,7 @@ function generateChips (n, random = true) {
   }
 
   if (random) {
-    chips = chips.sort(() => Math.random() - 0.5)
+    chips = knuthShuffle(chips)
 
     // re-index after random sorting
     for (i = 0; i < 16; i++) {
