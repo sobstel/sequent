@@ -11,13 +11,21 @@ export const reducers = asyncInitialState.outerReducer(
 )
 
 const loadInitialStateFromStorage = (state) => {
-  return AsyncStorage.getItem('@Sequent:hiscore')
-    .then((result) => {
-      const hiscore = JSON.parse(result)
-      if (hiscore !== null) {
-        return { ...state, game: { ...state.game, hiscore: hiscore } }
-      }
-    })
+  return AsyncStorage.multiGet(['@Sequent:hiscore', '@Sequent:level']).then((stores) => {
+    let restored_state = { ...state }
+
+    const hiscore = JSON.parse(stores[0][1])
+    if (hiscore !== null) {
+      restored_state = { ...restored_state, game: { ...restored_state.game, hiscore: hiscore } }
+    }
+
+    const level = JSON.parse(stores[1][1])
+    if (level !== null) {
+      restored_state = { ...restored_state, game: { ...restored_state.game, level: level } }
+    }
+
+    return restored_state
+  })
 }
 
 export const storeMiddleware = asyncInitialState.middleware(loadInitialStateFromStorage)

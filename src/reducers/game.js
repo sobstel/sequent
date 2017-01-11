@@ -29,6 +29,8 @@ export default function reducer (state = initialState, action = {}) {
         nextIndex = 0
       }
 
+      AsyncStorage.setItem('@Sequent:level', JSON.stringify(levels[nextIndex]))
+
       return { ...game.stop(state, action), level: levels[nextIndex] }
 
     case 'TOGGLE_GAME':
