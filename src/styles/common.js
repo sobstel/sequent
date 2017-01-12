@@ -1,7 +1,7 @@
 
 import { StyleSheet } from 'react-native'
 
-export const bgColor = 'lightskyblue'
+export const bgColor = 'lightgray'
 
 export default StyleSheet.create({
   rootScene: {
@@ -11,7 +11,6 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
-    backgroundColor: bgColor,
-    borderRadius: 20
+    backgroundColor: bgColor
   }
 })
