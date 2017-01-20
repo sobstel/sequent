@@ -9,10 +9,8 @@ export default class AboutText extends Component {
       <View style={styles.container}>
         <Text style={styles.text}>
           Short-term memory training game. Remember the sequential order of numbers displaying on your screen.
-        </Text>
-        <Text style={styles.text}>
-          Inspired by Ayumu. His performance was superior to that of comparably trained university
-          students. Young chimpanzees have better working memory than you!
+          Inspired by Ayumu, whose performance was superior to that of comparably trained university
+          students.
         </Text>
         <Image style={styles.image} source={require('../images/ayumu.gif')} />
       </View>
@@ -20,7 +18,7 @@ export default class AboutText extends Component {
   }
 }
 
-const { height, width } = Dimensions.get('window')
+const { width } = Dimensions.get('window')
 
 const styles = StyleSheet.create({
   container: {

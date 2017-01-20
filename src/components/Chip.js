@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 import { StyleSheet, Text, TouchableHighlight } from 'react-native'
+import Dimensions from 'Dimensions'
 
 import { bgColor } from '../styles/common'
 
@@ -39,14 +40,21 @@ export default class Chip extends Component {
   }
 }
 
+const { width } = Dimensions.get('window')
+
+// 1 (1 8 1) (1 8 1) (1 8 1) (1 8 1) 1
+const minChipSize = 44
+const maxChipSize = 64
+const chipSize = Math.min(Math.max(parseInt(8 / 42 * width), minChipSize), maxChipSize)
+const chipMargin = parseInt((width - 4 * chipSize) / 10)
+
 const styles = StyleSheet.create({
   chip: {
-    margin: 10,
-    padding: 5,
+    margin: chipMargin,
     backgroundColor: '#333',
-    borderRadius: 30,
-    width: 60,
-    height: 60,
+    borderRadius: parseInt(chipSize / 2),
+    width: chipSize,
+    height: chipSize,
     justifyContent: 'center',
     alignItems: 'center'
   },

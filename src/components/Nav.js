@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     marginBottom: 25,
-    marginTop: 25
+    marginTop: 10
   },
   iconWrapper: {
     backgroundColor: 'saddlebrown',

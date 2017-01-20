@@ -28,7 +28,7 @@ export default class Results extends Component {
   }
 }
 
-const { height, width } = Dimensions.get('window')
+const { width } = Dimensions.get('window')
 
 const styles = StyleSheet.create({
   container: {
