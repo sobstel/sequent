@@ -1,19 +1,33 @@
 
 import React, { Component } from 'react'
-import { StyleSheet, Text, TouchableHighlight } from 'react-native'
+import { StyleSheet, Text, TouchableWithoutFeedback } from 'react-native'
 import Dimensions from 'Dimensions'
+import * as Animatable from 'react-native-animatable'
 
 import { bgColor } from '../styles/common'
 
 export default class Chip extends Component {
   render () {
+    return (
+      <TouchableWithoutFeedback onPress={() => this.onPress()} disabled={this.isDisabled()}>
+        <Animatable.View
+          animation='bounceIn'
+          delay={Math.random() * 400}
+          duration={400}
+          ref='chip'
+          style={[styles.chip, this.styles()]}
+        >
+          {this.renderText()}
+        </Animatable.View>
+      </TouchableWithoutFeedback>
+    )
+  }
+
+  onPress () {
     const { chip, onPress } = this.props
 
-    return (
-      <TouchableHighlight style={[styles.chip, this.styles()]} onPress={() => onPress(chip.id)} disabled={this.isDisabled()}>
-        {this.renderText()}
-      </TouchableHighlight>
-    )
+    this.refs.chip.tada(75)
+    onPress(chip.id)
   }
 
   renderText () {

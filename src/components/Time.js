@@ -1,6 +1,7 @@
 
 import React, { Component, PropTypes } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text } from 'react-native'
+import * as Animatable from 'react-native-animatable'
 
 import { formatTime } from '../lib/format'
 
@@ -18,14 +19,18 @@ export default class Time extends Component {
 
       const time = (props.endedAt ? props.endedAt - props.startedAt : 0)
       this.setState({ time })
+
+      if (props.won) {
+        this.refs.time.tada(300)
+      }
     }
   }
 
   render () {
     return (
-      <View style={styles.container}>
+      <Animatable.View ref='time' style={styles.container}>
         <Text style={[styles.text, this.styles()]}>{formatTime(this.state.time)}</Text>
-      </View>
+      </Animatable.View>
     )
   }
 

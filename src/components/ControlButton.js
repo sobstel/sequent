@@ -1,16 +1,26 @@
 
 import React, { Component, PropTypes } from 'react'
-import { StyleSheet, Text, TouchableHighlight } from 'react-native'
+import { StyleSheet, Text, TouchableWithoutFeedback } from 'react-native'
+import * as Animatable from 'react-native-animatable'
 
 export default class ControlButton extends Component {
   render () {
-    const { label, onPress } = this.props
+    const { label } = this.props
 
     return (
-      <TouchableHighlight style={styles.container} onPress={onPress}>
-        <Text style={styles.label}>{label.toUpperCase()}</Text>
-      </TouchableHighlight>
+      <TouchableWithoutFeedback onPress={() => this.onPress()}>
+        <Animatable.View ref='controlButton' style={styles.container}>
+          <Text style={styles.label}>{label.toUpperCase()}</Text>
+        </Animatable.View>
+      </TouchableWithoutFeedback>
     )
+  }
+
+  onPress () {
+    const { onPress } = this.props
+
+    this.refs.controlButton.tada(75)
+    onPress()
   }
 }
 
