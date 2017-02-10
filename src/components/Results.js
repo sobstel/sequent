@@ -34,10 +34,7 @@ const styles = StyleSheet.create({
   container: {
   },
   view: {
-    flex: 1,
-    flexDirection: 'column',
-    marginVertical: 25,
-    marginHorizontal: 25
+    marginVertical: 20
   },
   row: {
     alignItems: 'center',
@@ -47,19 +44,15 @@ const styles = StyleSheet.create({
   },
   col: {
     marginHorizontal: 10,
-    marginBottom: 5,
-    width: (parseInt((width - 40 - 3 * 20 - 2 * 25) / 2))
+    marginBottom: 5
   },
   col_no: {
     fontSize: 16,
-    fontWeight: 'bold',
-    textAlign: 'right',
-    width: 40
+    fontWeight: 'bold'
   },
   col_result: {
     fontFamily: 'Courier',
-    fontSize: 20,
-    textAlign: 'center'
+    fontSize: 18
   },
   col_date: {
     fontSize: 13,
