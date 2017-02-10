@@ -23,6 +23,8 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		169D4A165A3F4382812CC7A1 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC7C17EC537B413AAB2A9741 /* MaterialIcons.ttf */; };
+		253688261E4E591500DC425D /* SequentLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 253688251E4E591500DC425D /* SequentLaunchScreen.storyboard */; };
+		2536882D1E4E5AA700DC425D /* launchscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2536882C1E4E5AA700DC425D /* launchscreen.png */; };
 		2859B73EC1D24953978BFF62 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C00A749F1A784D90ABD809FA /* FontAwesome.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -203,6 +205,8 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = sequent/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		19025778E3424E939A7209A4 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		253688251E4E591500DC425D /* SequentLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SequentLaunchScreen.storyboard; sourceTree = "<group>"; };
+		2536882C1E4E5AA700DC425D /* launchscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launchscreen.png; path = /tmp/launchscreen.png; sourceTree = "<absolute>"; };
 		507A3F9CBD8442A7B6C55F0E /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -426,6 +430,7 @@
 		CE38339D42B9477A83BBB497 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2536882C1E4E5AA700DC425D /* launchscreen.png */,
 				A5811832397140128E3975F1 /* Entypo.ttf */,
 				19025778E3424E939A7209A4 /* EvilIcons.ttf */,
 				C00A749F1A784D90ABD809FA /* FontAwesome.ttf */,
@@ -435,6 +440,7 @@
 				DCF9676BE6C74BD7A27E3D79 /* Octicons.ttf */,
 				D5132797CAB94EB2BB860DEB /* SimpleLineIcons.ttf */,
 				507A3F9CBD8442A7B6C55F0E /* Zocial.ttf */,
+				253688251E4E591500DC425D /* SequentLaunchScreen.storyboard */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -728,6 +734,8 @@
 				CEA4AF2913EF489AB7FBB926 /* Ionicons.ttf in Resources */,
 				169D4A165A3F4382812CC7A1 /* MaterialIcons.ttf in Resources */,
 				070CBECAD3CA4104A7DFDB97 /* Octicons.ttf in Resources */,
+				2536882D1E4E5AA700DC425D /* launchscreen.png in Resources */,
+				253688261E4E591500DC425D /* SequentLaunchScreen.storyboard in Resources */,
 				D55D98019E2A43748523BB8D /* SimpleLineIcons.ttf in Resources */,
 				8C650A91137A429287CA7329 /* Zocial.ttf in Resources */,
 			);
