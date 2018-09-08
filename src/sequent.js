@@ -34,4 +34,4 @@ class Sequent extends Component {
   }
 }
 
-AppRegistry.registerComponent('sequent', () => Sequent)
+AppRegistry.registerComponent('Sequent', () => Sequent)
